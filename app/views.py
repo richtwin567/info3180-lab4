@@ -66,6 +66,8 @@ def get_image(filename):
 
 @app.route("/files")
 def files():
+    if not session.get('logged_in'):
+        abort(401)
     return render_template("files.html",files=get_uploaded_images())
 
 @app.route('/login', methods=['POST', 'GET'])
