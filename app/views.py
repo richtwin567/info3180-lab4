@@ -39,7 +39,8 @@ def upload():
             file  = upload_form.image.data
             filename = secure_filename(file.filename)
         # Get file data and save to your uploads folder
-            file.save(os.path.join(app.instance_path,os.environ.get("UPLOAD_FOLDER"),filename))
+
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             flash('File Saved', 'success')
             return redirect(url_for('home'))
 
