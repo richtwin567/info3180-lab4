@@ -55,7 +55,6 @@ def get_uploaded_images():
     for subdir, dirs, files in os.walk(uploads_folder):
         for file in files:
             file_paths.append(file)
-    print(file_paths)
     return file_paths
 
 @app.route("/uploads/<filename>")
